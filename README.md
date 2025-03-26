@@ -36,7 +36,7 @@ Update the name and metadata.template parameters in the azure.yaml, with your pr
 
 1. Sync the new scenario you created into your own GitHub account into a public repo, using the same name as what you specified in the azure.yaml
 
-2. Once available, add the necessary "demo scenario artifacts" (demoguide, architecture diagram,...) 
+2. Once available, add the necessary "additional demo scenario artifacts" (demoguide.md, demoguide screenshots, scenario architecture diagram,...) 
 
 3. With all template details and demo artifacts available in the repo, follow the steps on how to [Contribute](https://microsoftlearning.github.io/trainer-demo-deploy/docs/contribute) to Trainer-Demo-Deploy, to get your scenario published into the catalog.
 
