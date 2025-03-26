@@ -1,58 +1,44 @@
 targetScope = 'subscription'
 
-// The main bicep module to provision Azure resources.
-// For a more complete walkthrough to understand how this file works with azd,
-// see https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-create
-
 @minLength(1)
 @maxLength(64)
-@description('Name of the the environment which is used to generate a short unique hash used in all resources.')
+@description('Name of the environment that can be used as part of naming resource convention')
 param environmentName string
 
 @minLength(1)
 @description('Primary location for all resources')
 param location string
 
-// Optional parameters to override the default azd resource naming conventions.
-// Add the following to main.parameters.json to provide values:
-// "resourceGroupName": {
-//      "value": "myGroupName"
-// }
-param resourceGroupName string = ''
-
 var abbrs = loadJsonContent('./abbreviations.json')
 
-// tags that should be applied to all resources.
+// Tags that should be applied to all resources.
+// 
+// Note that 'azd-service-name' tags should be applied separately to service host resources.
+// Example usage:
+//   tags: union(tags, { 'azd-service-name': <service name in azure.yaml> })
 var tags = {
-  // Tag all resources with the environment name.
   'azd-env-name': environmentName
 }
-
-// Generate a unique token to be used in naming resources.
-// Remove linter suppression after using.
-#disable-next-line no-unused-vars
 var resourceToken = toLower(uniqueString(subscription().id, environmentName, location))
 
-// Name of the service defined in azure.yaml
-// A tag named azd-service-name with this value should be applied to the service host resource, such as:
-//   Microsoft.Web/sites for appservice, function
-// Example usage:
-//   tags: union(tags, { 'azd-service-name': apiServiceName })
-#disable-next-line no-unused-vars
-var apiServiceName = 'python-api'
-
-// Organize resources in a resource group
-resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
-  name: !empty(resourceGroupName) ? resourceGroupName : '${abbrs.resourcesResourceGroups}${environmentName}'
+// This deploys the Resource Group
+resource rg 'Microsoft.Resources/resourceGroups@2022-09-01' = {
+  name: 'rg-${environmentName}'
   location: location
   tags: tags
 }
 
-// Add resources to be provisioned below.
-// A full example that leverages azd bicep modules can be seen in the todo-python-mongo template:
-// https://github.com/Azure-Samples/todo-python-mongo/tree/main/infra
-
-
+// Add resources to be provisioned below. This can be actual resources, or if you follow the modular approach, create a module and point to the module.bicep file, like this example:
+//module trafficmgr './trafficmgr.bicep' = {
+//  name: 'resources'
+//  scope: rg
+//  params: {
+//    uniqueDnsName: 'tmlab-${resourceToken}'
+//    location: location
+//    tags: tags
+//    environmentName: environmentName
+//  }
+//}
 
 // Add outputs from the deployment here, if needed.
 //
