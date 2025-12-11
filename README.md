@@ -46,7 +46,7 @@ Deploy this template using three simple commands:
 
 1. **Initialize the project**
    ```bash
-   azd init -t petender/tdd-azd-starter
+   azd init -t [your-org]/[your-project]
    ```
 
 2. **Provision and deploy to Azure**
