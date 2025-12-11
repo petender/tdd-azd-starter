@@ -1,13 +1,10 @@
-[comment]: <> (please keep all comment items at the top of the markdown file)
-[comment]: <> (please do not change the ***, as well as <div> placeholders for Note and Tip layout)
-[comment]: <> (please keep the ### 1. and 2. titles as is for consistency across all demoguides)
-[comment]: <> (section 1 provides a bullet list of resources + clarifying screenshots of the key resources details)
-[comment]: <> (section 2 provides summarized step-by-step instructions on what to demo)
+[comment]: <> (CONTRIBUTOR: Replace [YOUR-PLACEHOLDER] text and add screenshots to screenshots subfolder)
+[comment]: <> (Keep the ***, <div> elements, and section 1/2 titles for consistency with other demoguides)
 
 
 [comment]: <> (this is the section for the Note: item; please do not make any changes here)
 ***
-### <your scenario title here>
+### [YOUR-SCENARIO-TITLE]
 
 <div style="background: lightgreen; 
             font-size: 14px; 
@@ -23,31 +20,34 @@
 
 ***
 ### 1. What Resources are getting deployed
-<add a one-paragraph lengthy description of what the scenario is about, and what is getting deployed>
 
-Provide a bullet list of the Resource Group and all deployed resources with name and brief functionality within the scenario. 
+[Provide a one-paragraph description of what the scenario is about, what business problem it solves, and what Azure resources are being deployed]
 
-* rg-%azdenvironmentname - Azure Resource Group.
-* TMLABAppSvcPlan-%region% - Azure App Service Plan in each region
-* TMLABWebApp-%region% - Azure App Service with static HTML webpage in each region
-* TMProfile - Traffic Manager Profile with endpoints
+Provide a bullet list of the Resource Group and all deployed resources with name and brief functionality within the scenario: 
 
-<add a screenshot of the deployed Resource Group with resources>
+* rg-[environmentname] - Azure Resource Group
+* [YOUR-RESOURCE-NAME-1] - [Resource description and purpose]
+* [YOUR-RESOURCE-NAME-2] - [Resource description and purpose]
+* [YOUR-RESOURCE-NAME-3] - [Resource description and purpose]
 
-<img src="https://raw.githubusercontent.com/petender/tdd-azd-starter/refs/heads/main/demoguide/TM/screenshot1.png" alt="Traffic Manager Resource Group" style="width:70%;">
+[Add a screenshot of the deployed Resource Group with resources]
+
+<img src="https://raw.githubusercontent.com/[your-github-org]/[your-repo-name]/refs/heads/main/demoguide/screenshots/screenshot1.png" alt="[Your Resource Group Description]" style="width:70%;">
 <br></br>
 
-<img src="https://raw.githubusercontent.com/petender/tdd-azd-starter/refs/heads/main/demoguide/TM/screenshot2.png" alt="Traffic Manager Profile with Endpoints" style="width:70%;">
-<br></br>
-
-<img src="https://raw.githubusercontent.com/petender/tdd-azd-starter/refs/heads/main/demoguide/TM/screenshot3.png" alt="Sample WebApp" style="width:70%;">
+<img src="https://raw.githubusercontent.com/[your-github-org]/[your-repo-name]/refs/heads/main/demoguide/screenshots/screenshot2.png" alt="[Your Resource Details]" style="width:70%;">
 <br></br>
 
 ### 2. What can I demo from this scenario after deployment
 
 Provide clear step-by-step instructions on what can be demoed after the scenario got deployed. If your demo requires additional manual steps to configure or update settings or make changes to the deployed resources, please mention it here.
 
-Add screenshots where relevant. The can be stored in their own subfolder under the demoguide folder.
+**Demo Steps:**
+1. [First demo step with clear instructions]
+2. [Second demo step]
+3. [Third demo step]
+
+Add screenshots where relevant. They should be stored in their own subfolder under the demoguide folder.
 
 
 

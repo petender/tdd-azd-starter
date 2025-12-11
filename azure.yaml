@@ -1,9 +1,22 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
 
-# update the name and metadata.template to match your project
+# CONTRIBUTOR: Update the name and version for your template
+# Try: tdd-my-scenario with version 1.0.0
 
 name: tdd-azd-starter
 metadata:
-  template: tdd-azd-starter@0.0.1-beta
+  template: tdd-azd-starter@1.0.0
 infra:
    provider: "bicep"
+
+# CONTRIBUTOR: Uncomment and customize hooks if you need lifecycle scripts (35% of templates use hooks)
+# hooks:
+#   preup:
+#     - run: pwsh scripts/setup.ps1
+#       shell: pwsh
+#   postprovision:
+#     - run: pwsh scripts/configure.ps1
+#       shell: pwsh
+#   postdeploy:
+#     - run: pwsh scripts/finalize.ps1
+#       shell: pwsh
