@@ -24,14 +24,12 @@ Update the following files with your scenario details:
   - Add verification steps and troubleshooting guidance
 
 - **azure.yaml** - Update project metadata
-  - Change 
-ame to your scenario name (e.g., 	dd-my-scenario)
+  - Change name to your scenario name (e.g., 	dd-my-scenario)
   - Update metadata.template version (use semantic versioning: 1.0.0)
   - Add hooks section if you need lifecycle scripts
 
 - **infra/main.bicep** - Define your infrastructure
-  - Uncomment and customize the 
-esources module reference
+  - Uncomment and customize the resources module reference
   - Add any additional parameters needed
   - Ensure SecurityControl: Ignore tag is present
 
@@ -85,7 +83,7 @@ azd down
 Create a new **public** repository on GitHub (via web UI or CLI), then push your template:
 
 ```powershell
-# Set your repository URL (repo name must match azure.yaml name)
+# Set your repository URL
 $repoUrl = "https://github.com/your-username/tdd-my-scenario.git"
 
 # Initialize git repository
