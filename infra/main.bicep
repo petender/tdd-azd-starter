@@ -18,6 +18,7 @@ var abbrs = loadJsonContent('./abbreviations.json')
 //   tags: union(tags, { 'azd-service-name': <service name in azure.yaml> })
 var tags = {
   'azd-env-name': environmentName
+  SecurityControl: 'Ignore'  // Required for MTT managed subscriptions
 }
 var resourceToken = toLower(uniqueString(subscription().id, environmentName, location))
 
@@ -28,17 +29,18 @@ resource rg 'Microsoft.Resources/resourceGroups@2022-09-01' = {
   tags: tags
 }
 
-// Add resources to be provisioned below. This can be actual resources, or if you follow the modular approach, create a module and point to the module.bicep file, like this example:
-//module trafficmgr './trafficmgr.bicep' = {
-//  name: 'resources'
-//  scope: rg
-//  params: {
-//    uniqueDnsName: 'tmlab-${resourceToken}'
-//    location: location
-//    tags: tags
-//    environmentName: environmentName
-//  }
-//}
+// CONTRIBUTOR: Uncomment and customize the resources module below for your infrastructure.
+// See .github/instructions/bicep.instructions.md for patterns and examples.
+//
+// module resources './resources.bicep' = {
+//   name: 'resources'
+//   scope: rg
+//   params: {
+//     location: location
+//     tags: tags
+//     environmentName: environmentName
+//   }
+// }
 
 // Add outputs from the deployment here, if needed.
 //
