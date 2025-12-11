@@ -71,12 +71,13 @@ azd down
 ```
 
 **Testing Checklist:**
-- [ ] Deployment completes without errors (15-20 minutes or less)
+- [ ] Deployment completes without errors
 - [ ] All resources appear in Azure Portal with correct tags
 - [ ] Outputs are populated in .env file
 - [ ] Demo steps work as documented
-- [ ] Cost is reasonable for training scenarios (-20/day)
+- [ ] Cost is reasonable for training scenarios
 - [ ] Clean up removes all resources
+- [ ] If using GitHub Copilot, verify the /tdd-review prompt
 
 ### 4. Publish to GitHub
 
